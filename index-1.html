@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assignment 2 - Website Building</title>
+        <script src="https://kit.fontawesome.com/2d55569a14.js" crossorigin="anonymous"></script>
+        <style>
+            body {
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+
+            #login-container {
+                width: 460px;
+                margin: 0 auto;
+            }
+
+            form label,
+            form input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            form input {
+                padding: 8px;
+            }
+
+            form label {
+                font-weight: bold;
+            }
+
+            form div {
+                margin: 16px 0px;
+            }
+
+            #my-form {
+                position: relative;
+                display: inline-block;
+            }
+            i.u_name {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-280%);
+                color: green;
+                display: none;
+            }
+            i.f_password {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(160%);
+                color: green;
+                display: none;
+            }
+            .uu_name {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-280%);
+                color: red;
+                display: none;
+            }
+
+            .ff_password {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(160%);
+                color: red;
+                display: none;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div id="login-container">
+
+            <form id="my-form">
+                <div id="form-username">
+                    <label for="username">Username:</label>
+                    <input id="username" type="text" placeholder="please enter username">
+                    <i class="fa-solid fa-check u_name"></i>
+                    <i class="fa-solid fa-xmark uu_name"></i>
+                </div>
+
+                <div>
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" placeholder="please enter password">
+                    <i class="fa-solid fa-check f_password"></i>
+                    <i class="fa-solid fa-xmark ff_password"></i>
+                </div>
+
+                <input type="submit" value="Login" id="button">
+            </form>
+
+        </div>
+
+
+        <script src="jquery-3.6.0.slim.min.js"></script>
+        <script>
+
+
+            $("#my-form").submit(function (e) {
+                e.preventDefault();
+
+                if ($("#username").val() == "new_user") {
+                    $("input#username").css("border-color", "green");
+                    $(".u_name").css('display', 'inline-block')
+                    $(".uu_name").css('display', 'none')
+                }
+                else {
+                    $("input#username").css("border-color", "red");
+                    $(".u_name").css('display', 'none');
+                    $(".uu_name").css('display', 'inline-block');
+                };
+
+
+            });
+
+            $("#my-form").submit(function (e) {
+                e.preventDefault();
+
+                if ($("input[type=password]").val() == "123456789") {
+                    $("input#password").css("border-color", "green");
+                    $(".f_password").css('display', 'inline-block');
+                    $(".ff_password").css('display', 'none');
+
+                }
+                else {
+                    $("input#password").css("border-color", "red");
+                    $(".ff_password").css('display', 'inline-block');
+                    $(".f_password").css('display', 'none');
+                };
+
+
+            });
+
+
+        </script>
+
+    </body>
+</html>
